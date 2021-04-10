@@ -304,7 +304,10 @@ class Upload < ApplicationRecord
   include DirectURLMethods
 
   def uploader_is_not_limited
-    uploadable = uploader.can_upload_with_reason
+    # While "Seeding database with sample content", rails aborts with the following error:
+    # NoMethodError: undefined method `can_upload_with_reason' for nil:NilClass
+    # This is a mere bypass for this problem, with no regards for security, since this repo will only be used in REST API development
+    uploadable = uploader.nil? ? true : uploader.can_upload_with_reason
     if uploadable != true
       self.errors.add(:uploader, User.upload_reason_string(uploadable))
       return false
