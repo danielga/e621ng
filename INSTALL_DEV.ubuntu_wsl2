@@ -83,7 +83,7 @@ fi
 
 script_log "Cloning e621 repository..."
 rm -rf "$APP_DIR"
-git clone "https://github.com/zwagoth/e621ng.git" "$APP_DIR"
+git clone --depth=1 "https://github.com/danielga/e621ng.git" "$APP_DIR"
 cp "$APP_DIR/script/install/danbooru_local_config.rb.templ" "$APP_DIR/config/danbooru_local_config.rb"
 cp "$APP_DIR/script/install/database.yml.templ" "$APP_DIR/config/database.yml"
 chown -R danbooru:danbooru "$APP_DIR"
