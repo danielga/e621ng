@@ -191,7 +191,7 @@ curl https://github.com/chrismytton/shoreman/raw/master/shoreman.sh -sLo /usr/bi
 chmod +x /usr/bin/shoreman
 
 script_log "Copying init.d file..."
-cp $APP_DIR/vagrant/danbooru /etc/init.d/
+cp $APP_DIR/script/install/danbooru /etc/init.d/
 
 script_log "Restarting danbooru init.d service..."
 service danbooru restart
